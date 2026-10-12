@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Birthday Night</title>
+<meta name="description" content="Birthday Night — you are invited. Pool, drinks, good company.">
+<meta name="theme-color" content="#0b0908">
+<meta property="og:title" content="Birthday Night — Let's play">
+<meta property="og:description" content="You are invited. Pool, drinks, good company.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎱%3C/text%3E%3C/svg%3E">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('pending');setTimeout(function(){document.documentElement.classList.remove('pending')},4000)}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Jost:wght@400;500;600&family=Mrs+Saint+Delafield&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/punch.css">
+</head>
+<body>
+<a class="skip" href="#pass">Skip to the ticket</a>
+
+<header class="nav" id="nav">
+  <a class="nav__mark" href="#top" data-c="host.monogram" aria-label="Back to top">BN</a>
+  <span class="nav__date" data-v="dateShort"></span>
+  <a class="nav__cta magnetic" href="#pass">Ticket</a>
+</header>
+
+<main id="top">
+
+  <!-- 1 · HERO -->
+  <section class="hero" data-bg="ink" aria-label="Invitation">
+    <div class="hero__frame"><img class="hero__img" data-img="hero" alt="" fetchpriority="high"></div>
+    <div class="spot" aria-hidden="true"></div>
+    <p class="hero__host" data-v="hostLine"></p>
+    <h1 class="hero__title">
+      <span class="line"><span class="line__in" data-c="event.title.0">Birthday</span></span>
+      <span class="line line--2"><span class="line__in" data-c="event.title.1">Night</span></span>
+    </h1>
+    <p class="hero__script" data-c="event.tagline">Let's play</p>
+    <p class="hero__sub" data-c="event.subtitle"></p>
+    <div class="hero__meta"><span data-c="copy.heroInvite">You are invited</span><span class="dot">✦</span><span data-v="date"></span></div>
+    <a class="scrollcue" href="#intro" aria-label="Scroll down"><span>Scroll</span><i></i></a>
+  </section>
+
+  <!-- 2 · INTRO -->
+  <section class="intro" id="intro" data-bg="ink" data-section="intro">
+    <p class="label" data-c="copy.introLabel"></p>
+    <p class="intro__text" id="introText" data-c="copy.intro"></p>
+    <figure class="intro__a"><div class="mask"><img data-img="introA" data-parallax="8" alt="" loading="lazy"></div></figure>
+    <figure class="intro__b"><div class="mask"><img data-img="introB" data-parallax="12" alt="" loading="lazy"></div></figure>
+  </section>
+
+  <div class="ticker-wrap"><div class="ticker" aria-hidden="true"><div class="ticker__track" id="tickerTrack"></div></div></div>
+
+  <!-- 3 · THE ROOM (pinned reveal) -->
+  <section class="room" data-bg="ink" data-section="room">
+    <div class="room__media"><img class="room__img" data-img="room" alt="" loading="lazy"></div>
+    <div class="room__shade"></div>
+    <p class="label room__label" data-c="copy.roomLabel"></p>
+    <h2 class="room__heading"><span class="room__word" id="roomW1" data-c="copy.roomHeading.0"></span><span class="room__word room__word--b" id="roomW2" data-c="copy.roomHeading.1"></span></h2>
+    <p class="room__caption" data-c="copy.roomCaption"></p>
+  </section>
+
+  <!-- 4 · GALLERY (horizontal) -->
+  <section class="gallery" id="gallery" data-bg="ink" data-section="gallery">
+    <div class="gallery__head">
+      <p class="label" data-c="copy.galleryLabel"></p>
+      <h2 class="gallery__title" data-c="copy.galleryHeading"></h2>
+    </div>
+    <div class="gallery__viewport" id="galleryViewport" tabindex="0" aria-label="Photo gallery, scroll sideways">
+      <div class="gallery__track" id="galleryTrack"></div>
+    </div>
+  </section>
+
+  <!-- 4b · RACK BREAK (playable) -->
+  <section class="break" id="break" data-bg="ink" data-section="rackBreak">
+    <p class="label" data-c="copy.breakLabel"></p>
+    <h2 class="break__title" data-c="copy.breakHeading"></h2>
+    <div class="break__stage"><canvas id="breakCanvas" role="img" aria-label="An animated pool table: a white ball breaks a rack of fifteen balls. Tap the table to shoot again."></canvas></div>
+    <div class="break__foot"><p class="hint" data-c="copy.breakHint"></p><button class="btn btn--ghost magnetic" id="breakBtn" type="button"></button></div>
+  </section>
+
+  <!-- 5 · TYPE BAND -->
+  <section class="typeband" data-bg="felt" data-section="typeBand" aria-hidden="true">
+    <div class="typeband__inner" id="typeBand"></div>
+  </section>
+
+  <!-- 6 · INVITATION -->
+  <section class="invite" id="invitation" data-bg="paper" data-section="invitation">
+    <div class="invite__grid">
+      <div class="invite__copy">
+        <p class="label" data-c="copy.inviteLabel"></p>
+        <h2 class="invite__heading"><span class="line"><span class="line__in" data-c="copy.inviteHeading.0"></span></span><span class="line"><span class="line__in" data-c="copy.inviteHeading.1"></span></span></h2>
+        <p class="invite__lead" data-c="copy.inviteLead"></p>
+        <dl class="facts" id="facts"></dl>
+      </div>
+      <figure class="invite__poster"><div class="poster-tilt"><img data-img="poster" alt="" loading="lazy"></div></figure>
+    </div>
+  </section>
+
+  <!-- 8a · PUNCH! CLUB — interactive punch bowl + ingredient claiming (js/punchConfig.js, js/punch.js) -->
+  <section class="punch" id="punch" data-bg="ink" data-section="punch" aria-labelledby="punchTitle">
+    <img class="punch__backdrop" src="images/punch-bowl-top.jpg" alt="" loading="lazy" width="1500" height="1000">
+    <div class="punch__wrap">
+
+      <header class="punch__hero">
+        <div class="punch__heroText">
+          <img class="punch__logo" src="images/punch-logo.png" alt="Punch! Club — artisan drinks, mindful hedonists" width="132" height="132" loading="lazy">
+          <h2 class="punch__title" id="punchTitle">Punch<span>!</span> Club</h2>
+          <p class="punch__tag">You bring the goods. We make the punch.</p>
+          <p class="punch__line">One guest. One ingredient. One legendary party.</p>
+          <p class="punch__explain">We're making one giant party punch together. Bring a fruit, a sweet, or a fun extra, and help us create the ultimate mix.</p>
+          <div class="punch__cta">
+            <a class="pbtn pbtn--gold" id="punchBuild" href="#punchIngredients">Build the punch</a>
+          </div>
+          <p class="punch__count" id="punchCount" aria-live="polite"></p>
+        </div>
+
+        <div class="punch__stage">
+          <div class="punch__bowl" id="punchBowl" role="img" aria-label="A glass punch bowl full of golden punch and floating fruit"></div>
+          <div class="punch__controls">
+            <button class="pbtn pbtn--orange" id="punchStir" type="button">Stir the punch!</button>
+            <button class="pbtn pbtn--ghost" id="punchSurprise" type="button">Surprise me</button>
+          </div>
+          <p class="punch__hint" id="punchHint" aria-live="polite"></p>
+          <p class="punch__mix" id="punchMix" aria-live="polite"></p>
+          <p class="punch__status" id="punchStatus" aria-live="polite"></p>
+        </div>
+      </header>
+
+      <div class="punch__progress" aria-label="Party progress">
+        <dl class="punch__stats" id="punchStats"></dl>
+        <div class="punch__bar" role="progressbar" aria-label="Ingredients claimed" aria-valuemin="0" aria-valuemax="100" id="punchBar"><i></i></div>
+        <p class="punch__sample" id="punchSample" hidden>Sample data — not real guest submissions.</p>
+      </div>
+
+      <div class="punch__pick" id="punchIngredients">
+        <div class="punch__pickHead">
+          <div>
+            <h3 class="punch__pickTitle" id="punchPickTitle" tabindex="-1">Bring something to the mix</h3>
+            <p class="punch__pickText">Choose what you'll bring. Let's make this punch legendary.</p>
+            <p class="punch__mode" id="punchMode"></p>
+          </div>
+          <figure class="punch__photo"><img src="images/punch-crystal-bowl.jpg" alt="Cut-glass punch bowl with orange slices, cucumber and mint" loading="lazy" width="960" height="960"></figure>
+        </div>
+        <div class="punch__mine" id="punchMine" hidden aria-live="polite"></div>
+        <div id="punchGrid"></div>
+        <p class="punch__fine" id="punchFine"></p>
+      </div>
+    </div>
+
+    <dialog class="pdialog" id="punchDialog" aria-labelledby="pdTitle">
+      <div class="pdialog__card">
+        <button class="pdialog__x" type="button" id="pdClose" aria-label="Close">&times;</button>
+
+        <form id="pdForm" novalidate data-view="form">
+          <p class="pdialog__eyebrow">Punch! Club</p>
+          <h3 class="pdialog__title" id="pdTitle">Your contribution</h3>
+
+          <div class="pfield">
+            <label for="pdName">Your name</label>
+            <input id="pdName" name="name" type="text" autocomplete="given-name" maxlength="60" aria-describedby="pdNameErr">
+            <p class="pfield__err" id="pdNameErr" role="alert"></p>
+          </div>
+          <div class="pfield">
+            <label for="pdIngredient">Ingredient</label>
+            <select id="pdIngredient" name="ingredient" aria-describedby="pdIngErr"></select>
+            <p class="pfield__err" id="pdIngErr" role="alert"></p>
+          </div>
+          <div class="pfield">
+            <label for="pdQty">Portions</label>
+            <div class="pqty">
+              <button type="button" id="pdMinus" aria-label="One portion less">&minus;</button>
+              <input id="pdQty" name="quantity" type="number" inputmode="numeric" min="1" value="1" aria-describedby="pdQtyErr pdQtyHelp">
+              <button type="button" id="pdPlus" aria-label="One portion more">+</button>
+            </div>
+            <p class="pfield__help" id="pdQtyHelp"></p>
+            <p class="pfield__err" id="pdQtyErr" role="alert"></p>
+          </div>
+          <div class="pfield">
+            <label for="pdNote" id="pdNoteLabel">Note (optional)</label>
+            <textarea id="pdNote" name="note" rows="3" maxlength="200" aria-describedby="pdNoteErr"></textarea>
+            <p class="pfield__err" id="pdNoteErr" role="alert"></p>
+          </div>
+
+          <p class="pdialog__mode" id="pdMode"></p>
+          <p class="pdialog__fail" id="pdFail" role="alert" hidden></p>
+          <button class="pbtn pbtn--gold pdialog__submit" id="pdSubmit" type="submit">Confirm my contribution</button>
+        </form>
+
+        <div class="pdialog__done" id="pdDone" data-view="done" hidden>
+          <div class="pdialog__ico" id="pdDoneIcon" aria-hidden="true"></div>
+          <p class="pdialog__eyebrow">Punch! Club</p>
+          <h3 class="pdialog__title pdialog__title--done" id="pdDoneTitle" tabindex="-1">You're in the mix!</h3>
+          <p class="pdialog__thanks">Thanks for bringing something to the party.</p>
+          <p class="pdialog__recap" id="pdRecap"></p>
+          <p class="pdialog__mode" id="pdDoneNote"></p>
+          <a class="pbtn pbtn--orange" id="pdOpenForm" href="#" target="_blank" rel="noopener" hidden>Open the form</a>
+          <button class="pbtn pbtn--ghost" id="pdDoneClose" type="button">Back to the punch</button>
+        </div>
+      </div>
+    </dialog>
+  </section>
+
+  <!-- 8b · COUNTDOWN + VIP PASS -->
+  <section class="pass" id="pass" data-bg="ink" data-section="ticket">
+    <h2 class="pass__heading"><span class="line"><span class="line__in" data-c="ticket.heading.0"></span></span><span class="line"><span class="line__in" data-c="ticket.heading.1"></span></span></h2>
+    <div class="countdown" id="countdown" role="timer" aria-label="Countdown to the party">
+      <div class="cd cd--d"><b id="cdD">0</b><span data-lbl-cd="days"></span></div>
+      <div class="cd"><b id="cdH">00</b><span data-lbl-cd="hours"></span></div>
+      <div class="cd"><b id="cdM">00</b><span data-lbl-cd="minutes"></span></div>
+      <div class="cd cd--s"><b id="cdS">00</b><span data-lbl-cd="seconds"></span></div>
+    </div>
+    <p class="pass__live" id="cdLive" role="status" aria-live="polite"></p>
+    <div class="strip">
+      <figure class="strip__a"><img data-img="stripA" alt="" loading="lazy"></figure>
+      <figure class="strip__b"><img data-img="stripB" alt="" loading="lazy"></figure>
+      <figure class="strip__c"><img data-img="stripC" alt="" loading="lazy"></figure>
+    </div>
+    <article class="ticket" aria-label="Your pass">
+      <div class="ticket__top">
+        <div class="ticket__info">
+          <p class="ticket__badge" data-c="ticket.badge"></p>
+          <h2 class="ticket__title" id="tkTitle" data-c="ticket.title"></h2>
+          <p class="ticket__sub" data-c="ticket.sub"></p>
+        </div>
+        <figure class="ticket__mark" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><radialGradient id="b8" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#3a342f"/><stop offset=".55" stop-color="#14100e"/><stop offset="1" stop-color="#050404"/></radialGradient></defs><circle cx="50" cy="50" r="48" fill="url(#b8)"/><circle cx="50" cy="46" r="21" fill="#eadfcb"/><text x="50" y="55" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="800" font-size="27" fill="#0b0908">8</text><ellipse cx="34" cy="22" rx="11" ry="6" fill="#fff" opacity=".13" transform="rotate(-30 34 22)"/></svg><figcaption data-c="ticket.pass"></figcaption></figure>
+      </div>
+      <div class="ticket__divider"><i></i></div>
+      <dl class="ticket__facts">
+        <div><dt data-c="labels.date"></dt><dd data-v="date"></dd></div>
+        <div><dt data-c="labels.time"></dt><dd class="hot" data-v="time"></dd></div>
+        <div><dt data-c="labels.venue"></dt><dd data-v="venue"></dd></div>
+        <div><dt data-c="labels.address"></dt><dd data-v="address"></dd></div>
+      </dl>
+      <div class="ticket__btns">
+        <a class="tbtn tbtn--solid tbtn--wide" data-act="register" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 9V7a1 1 0 011-1h16a1 1 0 011 1v2a3 3 0 000 6v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2a3 3 0 000-6z"/><path d="M14 6v12" stroke-dasharray="1.5 2.5"/></svg><span data-lbl="register"></span></a>
+        <a class="tbtn tbtn--ghost" data-act="maps" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-lbl="openMaps"></span></a>
+        <button class="tbtn tbtn--ghost" data-act="cal" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span data-lbl="addCalendar"></span></button>
+      </div>
+      <p class="hint" role="status" aria-live="polite"></p>
+    </article>
+  </section>
+
+  <!-- 9 · FINALE -->
+  <section class="finale" data-bg="ink" data-section="finale">
+    <div class="finale__media"><img class="finale__img" data-img="finale" alt="" loading="lazy"></div>
+    <div class="finale__shade"></div>
+    <div class="spot" aria-hidden="true"></div>
+    <p class="finale__script" data-c="copy.finaleLine"></p>
+    <p class="finale__sub" data-c="copy.finaleSub"></p>
+    <a class="btn btn--solid magnetic finale__btn" href="#pass" id="backBtn"></a>
+  </section>
+</main>
+
+<footer class="footer">
+  <span data-v="footerName"></span>
+  <nav class="footer__links" id="socials" aria-label="Links"></nav>
+</footer>
+
+<div class="ballprogress" aria-hidden="true"><i></i></div>
+
+<noscript><p class="noscript">This invitation needs JavaScript to display its details. Birthday Night — Let's play.</p></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/siteConfig.js"></script>
+<script src="js/punchConfig.js"></script>
+<script src="js/main.js" defer></script>
+<script src="js/punch.js" defer></script>
+</body>
+</html>
